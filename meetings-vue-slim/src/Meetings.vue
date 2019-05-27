@@ -37,8 +37,14 @@
       };
     },
     mounted() {
-      // get the list
-    },
+  this.$http.get('participants').then(response => {
+    this.people = response.body;
+  });
+this.$http.post('participants', newParticipantData).then(response => {
+  this.people.push(participants);
+})
+},
+
     methods: {
       addNewParticipant(participant) {
         this.people.push(participant);
@@ -46,3 +52,5 @@
     }
   };
 </script>
+this.$http.post('participants', newParticipantData).then(response => {
+  // add him
